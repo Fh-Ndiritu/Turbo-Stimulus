@@ -1,0 +1,31 @@
+<%= turbo_frame_tag "content", class: "flex w-full flex-col justify-center items-center bg-green-300"  do %>
+
+  <!--We shall decompose into a a list of first 10 games
+  New button
+  Create form
+  List new games
+  View all games-->
+
+  <!--# anything clicked in this scope will be fetched and replaced here-->
+  <!--We must have a new_game id in the target page-->
+  <%= turbo_frame_tag "new_game" do %>
+   <!--turbo: false-->
+    <%= link_to "New Game", new_old_school_path, data: {turbo_confirm: "Are you for real?", turbo_method: :get},  class: "btn_main " %>
+  <% end %>
+
+<!--Lazy loading and sources-->
+  <!--# anything clicked in this scope will be fetched and replaced here-->
+  <!--We must have a new_game id in the target page-->
+ <%#= turbo_frame_tag "old_schools", src: old_schools_path, loading: :lazy do %>
+<!-- Fast me-->
+  <%# end %>
+
+<!--Template is very important in streams-->
+<!--prepend, append, update, replace, remove, refresh -->
+<!--New refresh method fetches new page, compares and reloads-->
+<!--<turbo-stream action="refresh" target="content" >
+  <template>
+    <div id="message_1" class="bg-amber-200 py-10 my-10">My new message! is here</div>
+  </template>
+</turbo-stream>-->
+<% end %>

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+
+.btn_main{
+  @apply px-8 py-2 bg-red-500 hover:bg-blue-300 text-white rounded cursor-pointer duration-300
+}
