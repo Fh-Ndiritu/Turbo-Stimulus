@@ -27,6 +27,10 @@ class OldSchoolsController < ApplicationController
       if @old_school.save
         format.html { redirect_to @old_school, notice: "Old school was successfully created." }
         format.json { render :show, status: :created, location: @old_school }
+        format.turbo_stream do
+          # render turbo_stream: turbo_stream.prepend(:old_schools, partial: "old_schools/old_school", locals: { old_school: @old_school })
+          render turbo_stream: turbo_stream.refresh(:old_schools)
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @old_school.errors, status: :unprocessable_entity }

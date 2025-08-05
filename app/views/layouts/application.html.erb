@@ -9,7 +9,6 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
-
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
@@ -20,13 +19,15 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+        <%= content_for(:meta) %>
   </head>
 
   <body>
     <main class="container mx-auto px-5 flex w-full flex-col justify-center items-center">
-      <%= turbo_frame_tag "Header" , class: "flex w-full justify-center" do %>
-        Heading
+      <%= turbo_frame_tag "Header" , class: "flex flex-col w-full justify-center " do %>
+        <p>Heading</p>
       <% end %>
+
 
       <%= yield %>
 

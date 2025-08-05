@@ -1,6 +1,13 @@
 <% content_for :title, "New old school" %>
 
-<div class="md:w-2/3 w-full">
+<!--# this will do a partial reload by default preserving the unchanged areas and scroll position-->
+<% content_for :meta do %>
+  <meta name="turbo-refresh-method" content="morph">
+  <meta name="turbo-refresh-scroll" content="preserve">
+<% end %>
+
+<!---->
+<div class="md:w-2/3 w-full min-h-[300rem]">
   <h1 class="font-bold text-4xl">New old school</h1>
 
  <!--If you must turbo me call this method-->

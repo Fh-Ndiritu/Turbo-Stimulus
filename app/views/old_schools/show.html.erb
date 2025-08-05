@@ -1,4 +1,5 @@
 <% content_for :title, "Showing old school" %>
+<%= turbo_stream_from @old_school %>
 
 <div class="md:w-2/3 w-full">
   <% if notice.present? %>
@@ -7,7 +8,10 @@
 
   <h1 class="font-bold text-4xl">Showing old school</h1>
 
-  <%= render @old_school %>
+  <%= turbo_frame_tag "show_old_school" do %>
+    <%= render @old_school %>
+  <% end %>
+
 
   <%= link_to "Edit this old school", edit_old_school_path(@old_school), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   <%= link_to "Back to old schools", old_schools_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
